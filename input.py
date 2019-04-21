@@ -1,9 +1,18 @@
 import csv
+from datetime import datetime
 
 with open('input.csv', 'r') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    line_count = 0
-    for row in csv_reader:
-        print(row)
-        
-csv_file.close()
+    with open('new_output.csv', 'w') as csv_output:
+        writer = csv.writer(csv_output)
+        reader = csv.reader(csv_file)
+
+        fields = next(reader)
+        fields.append('Parsed')
+        writer.writerow([fields])
+
+        for item in reader:
+            item.append(datetime.today().strftime('%Y-%m-%d'))
+            writer.writerow([item])
+
+
+

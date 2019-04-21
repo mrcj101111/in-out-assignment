@@ -1,2 +1,5 @@
 # in-out-assignment
 Python exercise script 
+
+Additional Python libraries:
+    -csv
