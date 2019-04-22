@@ -1,5 +1,7 @@
-# in-out-assignment
-Python exercise script 
+### in-out-assignment requirements ###
 
-Additional Python libraries:
-    -csv
+# CSV file reading and writing #
+CSV
+
+# Basic date and time types #
+datetime
