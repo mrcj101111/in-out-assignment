@@ -6,7 +6,7 @@ with open('input.csv', 'r') as csv_file:
     #Open csv file to write new data to
     with open('new_output.csv', 'w') as csv_output:
         writer = csv.writer(csv_output, delimiter=';', quoting=csv.QUOTE_NONE,
-        escapechar=' ')
+                            escapechar=' ')
         reader = csv.reader(csv_file, skipinitialspace=True)
 
         #Take the title row and append 'Parsed' to it
