@@ -13,7 +13,8 @@ class AmendCsv:
     # to write to
     csv_write_file = csv.writer(CsvWriteFile.write_file(CsvReadFile, 'new_output.csv'))
 
-    #Take the title row and append 'Parsed' to it
+    #Take the title row, append 'Parsed' to it and write it to file
     addColumn.add_title(addColumn, csv_read_file, csv_write_file)
 
-    addEntry.add_entry(addEntry, csv_read_file, csv_write_file)
+    #For each row, add the date and write it to file
+    addEntry.add_date(addEntry, csv_read_file, csv_write_file)
