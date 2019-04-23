@@ -21,6 +21,6 @@ Running script:
 
 -Navigate to the the directory in which you've cloned the project.
 
--Run the script 'csv_writer.py'.
+-Run the script 'amend_csv.py'.
 
 -The new csv filed will override 'new_output.py'.
