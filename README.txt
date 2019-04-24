@@ -2,7 +2,7 @@ IN-Out-Assignment
 
 Getting Started:
 These instructions will get you a copy of the project up and running on your
-local machine for development and 
+local machine for development and
 testing purposes. See deployment for notes on how to deploy the project on a
 live system.
 
@@ -21,6 +21,5 @@ Running script:
 
 -Navigate to the the directory in which you've cloned the project.
 
--Run the script 'amend_csv.py'.
-
--The new csv filed will override 'new_output.py'.
+-Run the script 'amend_csv.py' followed by your input file name and a prefered
+ output file name example: amend_csv.py -input 'input.csv' -output 'new_output.csv'.
