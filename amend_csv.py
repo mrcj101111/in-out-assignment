@@ -1,20 +1,33 @@
 import csv
-from open_csv import CsvReadFile, CsvWriteFile
-from add_column import addColumn
-from add_entry import addEntry
+from datetime import datetime
+
 
 class AmendCsv:
 
-    #Create new variable which runs the function to open the csv file
-    # to read from
-    csv_read_file = csv.reader(CsvReadFile.read_file(CsvReadFile,'input.csv'))
+    def __init__(self):
+        self.input_file = None
 
-    #Create new variable which runs the function to open the csv file
-    # to write to
-    csv_write_file = csv.writer(CsvWriteFile.write_file(CsvReadFile, 'new_output.csv'))
+    # Create function to open the csv file to read from
+    def read_file(self, file_name):
+        return csv.reader(open(file_name, 'r', newline=''))
 
-    #Take the title row, append 'Parsed' to it and write it to file
-    addColumn.add_title(addColumn, csv_read_file, csv_write_file)
+    # Create function to open the csv file to write to
+    def write_file(self, title, input_file_name, output_file_name):
+        input_file = self.read_file(input_file_name)
+        writer = csv.writer(open(output_file_name, 'w', newline=''))
 
-    #For each row, add the date and write it to file
-    addEntry.add_date(addEntry, csv_read_file, csv_write_file)
+        # Take the title row and append an extra title
+        fields = next(input_file)
+        fields.append(title)
+        writer.writerow(fields)
+
+        # For each row after the title row, add another entry
+        for item in input_file:
+            item.append(' ' + datetime.today().strftime('%Y-%m-%d %X'))
+            writer.writerow(item)
+
+
+if __name__ == "__main__":
+
+    csv_parser = AmendCsv()
+    csv_parser.write_file('Parsed', 'input.csv', 'new_output.csv')
